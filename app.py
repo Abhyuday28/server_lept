@@ -14,14 +14,14 @@ headers = {
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000","https://lept-enrichment-tool.vercel.app"], 
+    allow_origins=["http://localhost:3000","https://lept-enrichment-tool.vercel.app/"], 
     allow_credentials=True,
     allow_methods=["GET"],  
     allow_headers=["*"],  
 )
 
 @app.get("/")
-def home():
+async def home():
     return {"message": "welcome"}
 
 @app.get("/api/enrich")
