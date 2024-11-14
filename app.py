@@ -14,7 +14,7 @@ headers = {
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000","https://lept-enrichment-tool.vercel.app/"], 
+    allow_origins=["https://server-three-nu-90.vercel.app/?vercelToolbarCode=5IQf_sx2o-LroF3"], 
     allow_credentials=True,
     allow_methods=["GET"],  
     allow_headers=["*"],  
@@ -25,7 +25,7 @@ async def home():
     return {"message": "welcome"}
 
 @app.get("/api/enrich")
-def enrich_company(website: str = Query(..., description="The website URL of the company"), lookalikes: bool = True):
+async def enrich_company(website: str = Query(..., description="The website URL of the company"), lookalikes: bool = True):
     # Build the full API URL with query parameters
     params = {
         "website": website,
